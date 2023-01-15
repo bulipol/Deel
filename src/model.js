@@ -87,11 +87,16 @@ const CONTRACT_STATUSES = {
   IN_PROGRESS: 'in_progress',
   TERMINATED: 'terminated'
 };
+const PROFILE_TYPES = {
+  CLIENT: 'client',
+  CONTRACTOR: 'contractor'
+};
 
 module.exports = {
   sequelize,
   Profile,
   Contract,
   Job,
-  CONTRACT_STATUSES
+  CONTRACT_STATUSES,
+  PROFILE_TYPES
 };

@@ -5,6 +5,7 @@ const createError = require('http-errors');
 const contracts = require('./contracts/routes');
 const jobs = require('./jobs/routes');
 const balances = require('./balances/routes');
+const admin = require('./admin/routes');
 const app = express();
 
 app.use(bodyParser.json());
@@ -14,6 +15,7 @@ app.set('models', sequelize.models);
 app.use('/contracts', contracts);
 app.use('/jobs', jobs);
 app.use('/balances', balances);
+app.use('/admin', admin);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
