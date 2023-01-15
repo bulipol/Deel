@@ -63,7 +63,7 @@ Job.init(
     },
     paid: {
       type: Sequelize.BOOLEAN,
-      default: false
+      defaultValue: false
     },
     paymentDate: {
       type: Sequelize.DATE
@@ -82,9 +82,16 @@ Contract.belongsTo(Profile, { as: 'Client' });
 Contract.hasMany(Job);
 Job.belongsTo(Contract);
 
+const CONTRACT_STATUSES = {
+  NEW: 'new',
+  IN_PROGRESS: 'in_progress',
+  TERMINATED: 'terminated'
+};
+
 module.exports = {
   sequelize,
   Profile,
   Contract,
-  Job
+  Job,
+  CONTRACT_STATUSES
 };

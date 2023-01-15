@@ -1,13 +1,8 @@
-const { Profile, Contract, Job } = require('../src/model');
-
-/* WARNING THIS WILL DROP THE CURRENT DATABASE */
-seed();
+const { Profile, Contract, Job, sequelize } = require('../src/model');
 
 async function seed() {
   // create tables
-  await Profile.sync({ force: true });
-  await Contract.sync({ force: true });
-  await Job.sync({ force: true });
+  await sequelize.sync({ force: true });
   //insert data
   await Promise.all([
     Profile.create({
@@ -126,7 +121,7 @@ async function seed() {
     Contract.create({
       id: 8,
       terms: 'bla bla bla',
-      status: 'in_progress',
+      status: 'terminated',
       ClientId: 4,
       ContractorId: 6
     }),
@@ -227,3 +222,7 @@ async function seed() {
     })
   ]);
 }
+
+module.exports = {
+  seed
+};
